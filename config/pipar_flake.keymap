@@ -18,6 +18,15 @@
         triggers-per-rotation = <24>;
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        bluetooth {
+            bindings = <&to 3>;
+            key-positions = <7 6 8>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -27,38 +36,52 @@
             // | A    | S     | D       | //
             // | Z    | X     | FN      | //
 
-            display-name = "default";
+            display-name = "Revit";
             bindings = <
-&kp TAB               &kp LEFT_WIN    &to 1
-&kp BACKSPACE         &kp UP_ARROW    &kp ENTER
-&kp LS(LA(NUMBER_1))  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp LS(LA(NUMBER_7))  &kp LS(LA(N8))        &to 1
+&kp LS(LA(NUMBER_4))  &kp LS(LA(N5))        &kp LS(LA(NUMBER_6))
+&kp LS(LA(NUMBER_1))  &kp LS(LA(NUMBER_2))  &kp LS(LA(NUMBER_3))
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp ESCAPE LS(LA(N9))>;
         };
 
-        function_layer {
+        layer_1 {
             // --------------------------- //
             // | BT_CLR | none | ENCODER | //
             // | BT_0   | BT_1 | BT_2    | //
             // | BT_3   | BT_4 | trans   | //
 
-            display-name = "function";
+            display-name = "Rhino";
             bindings = <
-&bt BT_CLR    &none         &to 2
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-&bt BT_SEL 3  &bt BT_SEL 4  &trans
+&kp F7  &kp F8  &to 2
+&kp F4  &kp F5  &kp F6
+&kp F1  &kp F2  &kp F3
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp F10 F9>;
         };
 
         layer_2 {
             bindings = <
-&kp C_PAUSE  &kp PRINTSCREEN  &to 0
-&kp INS      &kp HOME         &kp PG_UP
-&kp DELETE   &kp END          &kp PAGE_DOWN
+&kp SPACE       &kp PRINTSCREEN  &to 0
+&kp HOME        &kp UP_ARROW     &kp END
+&kp LEFT_ARROW  &kp DOWN_ARROW   &kp RIGHT_ARROW
             >;
+
+            label = "Bewegung";
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+        };
+
+        blutooth {
+            display-name = "Bluetooth";
+            bindings = <
+&bt BT_CLR    &bt BT_CLR_ALL  &to 0
+&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2
+&bt BT_SEL 3  &bt BT_SEL 4    &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 };
