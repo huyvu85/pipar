@@ -22,29 +22,13 @@
         compatible = "zmk,combos";
 
         bluetooth {
-            bindings = <&to 3>;
+            bindings = <&to 2>;
             key-positions = <7 6 8>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
-
-        default_layer {
-            // ---------------------------//
-            // | Q    | W     | ENCODER | //
-            // | A    | S     | D       | //
-            // | Z    | X     | FN      | //
-
-            display-name = "Revit";
-            bindings = <
-&kp LS(LA(NUMBER_7))  &kp LS(LA(N8))        &to 1
-&kp LS(LA(NUMBER_4))  &kp LS(LA(N5))        &kp LS(LA(NUMBER_6))
-&kp LS(LA(NUMBER_1))  &kp LS(LA(NUMBER_2))  &kp LS(LA(NUMBER_3))
-            >;
-
-            sensor-bindings = <&inc_dec_kp ESCAPE LS(LA(N9))>;
-        };
 
         layer_1 {
             // --------------------------- //
@@ -54,7 +38,7 @@
 
             display-name = "Rhino";
             bindings = <
-&kp F7  &kp F8  &to 2
+&kp F7  &kp F8  &to 1
 &kp F4  &kp F5  &kp F6
 &kp F1  &kp F2  &kp F3
             >;
